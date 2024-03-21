@@ -17,7 +17,7 @@ function Withdraw(){
     useEffect(()=>{
         async function fetchData(){
             if(name&&pass){
-                await axios.get('http://localhost:8080/data').then(res=>{console.log(res.data);
+                await axios.get('https://server-1-784t.onrender.com/data').then(res=>{console.log(res.data);
                 setData(res.data);
                 let user = res.data.find(user=>user.name === name && user.password ===pass)
                 if(user){
@@ -84,7 +84,7 @@ function Withdraw(){
 
         for(let i=0; i<data.length; i++){
             if(data[i].name === name && data[i].password === pass){
-                await axios.put(`http://localhost:8080/update/${data[i]._id}`,{amount:data[i].amount - Number(withdraw)});
+                await axios.put(`https://server-1-784t.onrender.com/update/${data[i]._id}`,{amount:data[i].amount - Number(withdraw)});
                 const newTotal = data[i].amount - Number(withdraw);
                 setTotal(newTotal);
                 data[i].amount = newTotal;
