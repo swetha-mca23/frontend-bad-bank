@@ -10,12 +10,12 @@ function Alldata() {
  
 
   function delClick(id){
-    axios.delete(`http://localhost:8080/delete/${id}`).then(setDelTrigger(true))
+    axios.delete(`https://server-1-784t.onrender.com/delete/${id}`).then(setDelTrigger(true))
   }
 
   useEffect(()=>{
 
-    axios.get("http://localhost:8080/data").then((item) => {
+    axios.get("https://server-1-784t.onrender.com/data").then((item) => {
       setData(item.data);
       setDelTrigger(false)
   })
